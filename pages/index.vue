@@ -3,11 +3,8 @@
 </template>
 
 <script>
-export default {
-
-}
+// This will work in both `<script setup>` and `<script>`
+definePageMeta({
+  layout: "custom",
+});
 </script>
-
-<style>
-
-</style>
