@@ -11,15 +11,18 @@
 </template>
 
 <script setup>
-let users = ref([]);
-
 //client side fetching (not generate html from server - no ssr)
-onMounted(() => {
-    fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json()).then((data) => {
-        users.value = data;
-    })
-})
-// This will work in both `<script setup>` and `<script>`
+// let users = ref([]);
+// onMounted( () => {
+    // fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json()).then((data) => {
+    //     users.value = data;
+    // })
+// })
+
+//client side ssr fetching
+const { data, error } = await useAsyncData('users', () => $fetch('https://jsonplaceholder.typicode.com/users'));
+let users = data.value;
+
 definePageMeta({
   layout: "custom",
 });
