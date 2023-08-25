@@ -1,5 +1,6 @@
 <template>
-  <h1>Hello</h1>
+    <Title>Welcome Home</Title>
+    <h1>Hello</h1>
 </template>
 
 <script>
