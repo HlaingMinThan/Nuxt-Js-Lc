@@ -8,6 +8,10 @@
             <li v-for="user in users" :key="user.id">{{user.name}}</li>
         </ul>
     </div>
+    
+    <div>
+        <h1>User name = {{user.name }} user id - {{user.id}}</h1>
+    </div>
 </template>
 
 <script setup>
@@ -24,9 +28,11 @@
 // let users = data.value;
 
 // ssr fetching shorten way (automatic unique key generate)
-const { data, error } = await useFetch('https://jsonplaceholder.typicode.com/users');
-let users = data.value;
+// const { data, error } = await useFetch('https://jsonplaceholder.typicode.com/users');
+// let users = data.value;
 
+// ssr fetching with pick the value we need
+const {data : user ,error} = await useFetch('https://jsonplaceholder.typicode.com/users/1', {pick : ['name','id']})
 definePageMeta({
   layout: "custom",
 });
