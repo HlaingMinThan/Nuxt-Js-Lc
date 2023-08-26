@@ -19,8 +19,12 @@
     // })
 // })
 
-//client side ssr fetching
-const { data, error } = await useAsyncData('users', () => $fetch('https://jsonplaceholder.typicode.com/users'));
+// ssr fetching
+// const { data, error } = await useAsyncData('users', () => $fetch('https://jsonplaceholder.typicode.com/users'));
+// let users = data.value;
+
+// ssr fetching shorten way (automatic unique key generate)
+const { data, error } = await useFetch('https://jsonplaceholder.typicode.com/users');
 let users = data.value;
 
 definePageMeta({
