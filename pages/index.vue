@@ -38,8 +38,8 @@
 // ssr fetching with pick the value we need
 // const {data : user ,error} = await useFetch('https://jsonplaceholder.typicode.com/users/1', {pick : ['name','id']})
 
-//fetch weather api with api key on client side
-const {data : weather ,error} = await useFetch('https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=ae5cdab93304b73f64062c05d8065b44')
+//fetch weather api with api key on server side
+const {data : weather ,error} = await useFetch('/api/weather')
 definePageMeta({
   layout: "custom",
 });
